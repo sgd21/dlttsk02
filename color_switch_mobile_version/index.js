@@ -545,10 +545,10 @@ var gameBall={
       if(this.y<min)
       {
 
-        if(this.dy==2)
-        this.downMovement=0;
-        else
-          this.downMovement=3;
+        //if(this.dy==2)
+        //this.downMovement=0;
+        //else
+          this.downMovement=2.3;
         change=min-this.y;
         colorCircle.y+=this.downMovement;
         obs.y+=this.downMovement;
@@ -569,10 +569,10 @@ var gameBall={
       if(this.y<min)
       {
 
-        if(this.dy==2)
-        this.downMovement=0;
-        else
-          this.downMovement=4.2;
+        //if(this.dy==2)
+        //this.downMovement=0;
+        //else
+          this.downMovement=2.3;
         change=min-this.y;
         colorCircle.y+=this.downMovement;
         obs.y+=this.downMovement;
@@ -840,6 +840,9 @@ function restart()
   document.querySelector(".resultsPage").style.zIndex=-1;
 
   difficulty="";
+  
+  document.querySelector("#pause").classList.remove("noHover");
+  document.querySelector("#resume").classList.add("noHover");
 
   for(let i=1;i<=5;i++)
   {
