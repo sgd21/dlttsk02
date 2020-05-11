@@ -33,6 +33,13 @@ var themeMusic=new Audio("audioFiles/themeMusic.mp3");
 var jump=new Audio("audioFiles/jump.wav");
 var dead=new Audio("audioFiles/dead.wav");
 var starAudio=new Audio("audioFiles/star.wav");
+var buttonAudio=new Audio("audioFiles/button.wav");
+var colorswitchAudio=new Audio("audioFiles/colorswitch.wav");
+var startAudio=new Audio("audioFiles/start.wav");
+buttonAudio.volume=1;
+colorswitchAudio.volume=1;
+startAudio.volume=1;
+
 themeMusic.loop=true;
 themeMusic.volume=0.2;
 jump.volume=1;
@@ -103,6 +110,9 @@ document.querySelector("#easy").addEventListener("click",function(event){
     document.querySelector(".touchPad").style.zIndex=3;
 
   }
+    
+  startAudio.play();
+
 });
 document.querySelector("#medium").addEventListener("click",function(event){
   restart();
@@ -121,6 +131,8 @@ document.querySelector("#medium").addEventListener("click",function(event){
     document.querySelector(".touchPad").style.zIndex=3;
 
   }
+    
+  startAudio.play();
 
 });
 document.querySelector("#hard").addEventListener("click",function(event){
@@ -140,10 +152,12 @@ document.querySelector("#hard").addEventListener("click",function(event){
     document.querySelector(".touchPad").style.zIndex=3;
 
   }
-
+  
+  startAudio.play();
 });
 document.querySelector("#newGame").addEventListener("click",function(){
   restart();
+  buttonAudio.play();
 });
 
 document.querySelector("#pause").addEventListener("click",function(){
@@ -151,6 +165,7 @@ document.querySelector("#pause").addEventListener("click",function(){
   gameStatus=-1;
   pauseStatus=1;
   document.querySelector("#resume").classList.remove("noHover");
+  buttonAudio.play();
 
 
 });
@@ -159,6 +174,7 @@ document.querySelector("#resume").addEventListener("click",function(){
   gameStatus=1;
   pauseStatus=-1;
   document.querySelector("#pause").classList.remove("noHover");
+  buttonAudio.play();
 
 });
 
@@ -168,6 +184,7 @@ document.querySelector("#startGame").addEventListener("click",function(){
   document.querySelector(".startPage").style.opacity=0;
   document.querySelector(".startPage").style.zIndex=-1;
   themeMusic.play();
+  buttonAudio.play();
 });
 
 document.querySelector("#newGame2").addEventListener("click",function(){
@@ -184,6 +201,7 @@ document.querySelector("#newGame2").addEventListener("click",function(){
     document.querySelector(".touchPad").style.zIndex=-1;
 
   }
+  buttonAudio.play();
 
 });
 
@@ -252,6 +270,7 @@ function Obstacle(x,y,radius){
       this.colorSwitchStatus=-1;
       gameBall.color=this.colorSwitchValue;
       checkCondition=colorArray[colors[0]];
+      colorswitchAudio.play();
 
     }
     if(this.angle1<=0)
@@ -322,6 +341,7 @@ function Obstacle(x,y,radius){
       this.colorSwitchStatus=-1;
       gameBall.color=this.colorSwitchValue;
       checkCondition=colorArray[colors[0]];
+      colorswitchAudio.play();
 
     }
     var a1=this.angle1%(Math.PI*2);
@@ -552,7 +572,7 @@ var gameBall={
         if(this.dy==2)
         this.downMovement=0;
         else
-          this.downMovement=6;
+          this.downMovement=4.2;
         change=min-this.y;
         colorCircle.y+=this.downMovement;
         obs.y+=this.downMovement;
