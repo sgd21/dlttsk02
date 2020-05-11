@@ -29,7 +29,7 @@ for(var k=0;k<4;k++)
 }
 }
 
-var themeMusic=new Audio("audiofiles/themeMusic.mp3");
+var themeMusic=new Audio("dlttsk02/themeMusic.mp3");
 var jump=new Audio("audioFiles/jump.wav");
 var dead=new Audio("audioFiles/dead.wav");
 var starAudio=new Audio("audioFiles/star.wav");
